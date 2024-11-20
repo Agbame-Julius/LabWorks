@@ -1,2 +1,2 @@
 # LabWorks
-This reository contains all my labs 
+This repository contains all my labs 
