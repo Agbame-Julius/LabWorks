@@ -10,6 +10,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+
+/**
+ * Service class that handles sorting requests and delegates sorting to appropriate sorting algorithm services.
+ * <p>
+ * This class is responsible for receiving a sorting request, choosing the appropriate sorting algorithm based on the
+ * user's input, and returning the sorted data. It supports multiple sorting algorithms such as Bucket Sort, Merge Sort,
+ * Quick Sort, Heap Sort, and Radix Sort.
+ * </p>
+ */
 @Service
 public class SortingService {
     private final BucketSortService bucketSortService;
@@ -17,6 +26,7 @@ public class SortingService {
     private final QuickSort quickSort;
     private final HeapSortService heapSortService;
     private RadixSortService radixSortService;
+
 
     @Autowired
     public SortingService(BucketSortService bucketSortService,
@@ -30,10 +40,23 @@ public class SortingService {
         this.radixSortService = radixSortService;
     }
 
+    /**
+     * Handles the sorting of data based on the user's request.
+     *
+     * @param sortingRequest the sorting request containing algorithm, order, and data to be sorted
+     * @return a map containing the sorted data, the algorithm used, and the order of sorting
+     * @throws  if an unsupported sorting algorithm is requested
+     * @throws  if the data provided is invalid or empty
+     */
     public Map<String, Object> handleSorting(SortingRequest sortingRequest) {
         String algorithm = sortingRequest.getAlgorithm();
         String order = sortingRequest.getOrder();
         List<Integer> data = sortingRequest.getData();
+
+        //validate inputs
+        if(data == null || data.isEmpty()){
+            throw new NullPointerException("data is null or empty");
+        }
 
         // Convert the list to an array
         int[] inputArray = data.stream().mapToInt(Integer::intValue).toArray();
