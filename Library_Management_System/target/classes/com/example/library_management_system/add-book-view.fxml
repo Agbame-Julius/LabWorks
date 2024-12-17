@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="txt_reserveBookid" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library_management_system.AddBookController">
+   <children>
+      <VBox layoutX="8.0" layoutY="43.0" prefHeight="266.0" prefWidth="85.0" spacing="10.0">
+         <children>
+            <Label text="Title">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="10.0" text="Author">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="45.0" text="ISBN">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="63.0" text="Genre">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="28.0" text="IsAvailable">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="85.0" layoutY="48.0" prefHeight="233.0" prefWidth="242.0">
+         <children>
+            <TextField fx:id="txt_title">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="txt_author" layoutX="10.0" layoutY="10.0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="txt_isbn" alignment="CENTER" layoutX="10.0" layoutY="36.0" promptText="XXX-X-XX-XX-X">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt_genre" layoutX="10.0" layoutY="61.0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="txt_available" layoutX="10.0" layoutY="87.0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="txt_bookid" layoutX="10.0" layoutY="164.0" prefHeight="32.0" prefWidth="242.0" promptText="Enter Book Id for Update or Delete">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+         </children>
+      </VBox>
+      <TableView fx:id="tvbooks" layoutX="337.0" layoutY="48.0" prefHeight="326.0" prefWidth="570.0">
+        <columns>
+          <TableColumn fx:id="colid" prefWidth="52.00006103515625" text="BookID" />
+          <TableColumn fx:id="col_title" prefWidth="89.60003662109375" text="Title" />
+            <TableColumn fx:id="col_author" prefWidth="111.199951171875" text="Author" />
+            <TableColumn fx:id="col_isbn" prefWidth="119.20001220703125" text="ISBN" />
+            <TableColumn fx:id="col_genre" prefWidth="118.400146484375" text="Genre" />
+            <TableColumn fx:id="col_available" prefWidth="75.9998779296875" text="Availability" />
+        </columns>
+      </TableView>
+      <Button fx:id="bttn_insert" layoutX="40.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleInsertAction" prefHeight="26.0" prefWidth="86.0" text="Insert">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="bttn_update" layoutX="142.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleUpdateAction" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #0fea88;" text="Update">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="bttn_delete" layoutX="233.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleDeleteAction" onMouseClicked="#handleDeleteAction" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #e81526;" text="Delete">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Button>
+      <AnchorPane layoutX="17.0" layoutY="402.0" prefHeight="214.0" prefWidth="250.0">
+         <children>
+            <TextField fx:id="txt_Lbookid" alignment="CENTER" layoutX="29.0" layoutY="20.0" prefHeight="26.0" prefWidth="167.0" promptText="bookID" />
+            <TextField fx:id="txt_LpatronID" alignment="CENTER" layoutX="25.0" layoutY="59.0" prefHeight="26.0" prefWidth="175.0" promptText="patronID" />
+            <DatePicker fx:id="re_date" layoutX="25.0" layoutY="98.0" prefHeight="32.0" prefWidth="175.0" promptText="10 days from now" />
+            <Button fx:id="bttn_lend" layoutX="69.0" layoutY="140.0" mnemonicParsing="false" onAction="#handleLendBook" prefHeight="32.0" prefWidth="86.0" text="Lend" textFill="#1b1b1b">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="59.0" prefHeight="18.0" prefWidth="132.0" text="Lend Book" textFill="#2f2f30" underline="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="338.0" layoutY="437.0" prefHeight="178.0" prefWidth="220.0">
+         <children>
+            <TextField fx:id="txt_R_bookid" alignment="CENTER" layoutX="41.0" prefHeight="32.0" prefWidth="150.0" promptText="BookID" />
+            <TextField fx:id="txt_R_patronid" alignment="CENTER" layoutX="41.0" layoutY="49.0" prefHeight="32.0" prefWidth="150.0" promptText="PatronID" />
+            <Button fx:id="bttn_return" layoutX="49.0" layoutY="130.0" mnemonicParsing="false" onAction="#handleReturnBook" prefHeight="26.0" prefWidth="109.0" text="Return Book">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
+               </font>
+            </Button>
+            <DatePicker fx:id="dt_returnDate" layoutX="29.0" layoutY="94.0" promptText="Return Date" />
+         </children>
+      </AnchorPane>
+      <Label alignment="CENTER" layoutX="382.0" layoutY="407.0" prefHeight="18.0" prefWidth="132.0" text="Return Book" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="638.0" layoutY="402.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+         <children>
+            <TextField fx:id="txt_reserveBook" alignment="CENTER" layoutX="25.0" layoutY="49.0" promptText="BookID" />
+            <TextField alignment="CENTER" layoutX="26.0" layoutY="100.0" promptText="PatronID" />
+            <Button fx:id="bttn_reserve" layoutX="52.0" layoutY="140.0" mnemonicParsing="false" onAction="#handleBookReservation" prefHeight="32.0" prefWidth="110.0" text="Reserve Book">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="44.0" layoutY="4.0" prefHeight="18.0" prefWidth="110.0" text="Reserver  Book" textAlignment="JUSTIFY" underline="true" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="bttn_transaction" layoutX="788.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleTransitionToTransactions" prefHeight="32.0" prefWidth="118.0" text="Transactions">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
